@@ -14,7 +14,7 @@ Click the 'Download raw file' button.
 
 ![image](https://github.com/user-attachments/assets/6a43a909-80a8-4ac4-bc4a-a4e7e4cdb952)
 
-After that, you're done! Now, save the file in your desired location; we recommend keeping it on your `Desktop` for quick access.
+Now save the file in your desired location; we recommend keeping it on your `Desktop` for quick access.
 
 ## Running it
 
