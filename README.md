@@ -1,6 +1,6 @@
 # Lyrics Tags Generator | tags-py 🐍
 
-A Python script that interacts with Lyrics Tags Generator. This is for people who prefer to use the service via a terminal.
+A Python script that interacts with Lyrics Tags Generator.
 
 [Click here to read documentation before usuage.](https://github.com/alsonick/lyrics-tags-generator-docs)
 
