@@ -2,6 +2,8 @@
 
 A Python script that interacts with Lyrics Tags Generator. This is for people who prefer to use the service via a terminal.
 
+[Click here to read documentation before usuage.](https://github.com/alsonick/lyrics-tags-generator-docs)
+
 ## Installation
 
 On the main repository, click the `tags.py` file.
