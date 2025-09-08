@@ -30,7 +30,7 @@ or
 $ python3 tags.py
 ```
 
-If you encouter any issues regarding missing modules then we recommend running the script in a virtual environment.
+If you encouter any issues regarding missing modules (`ModuleNotFoundError`) then we recommend running the script in a virtual environment.
 
 Follow these steps:
 
