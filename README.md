@@ -4,37 +4,79 @@ A Python script that interacts with Lyrics Tags Generator.
 
 [Click here to read documentation before usuage.](https://github.com/alsonick/lyrics-tags-generator-docs)
 
-## Installation
+## Installation 📦
 
 On the main repository, click the `tags.py` file.
 
-![image](https://github.com/user-attachments/assets/18e6c07c-214e-47b3-874b-7d16679e545d)
+<img width="98" height="39" alt="image" src="https://github.com/user-attachments/assets/a58afe2f-235a-4ca2-8075-7a83b19e2b7d" />
 
-Click the 'Download raw file' button.
+Click the 'Download raw file' icon button.
 
-![image](https://github.com/user-attachments/assets/6a43a909-80a8-4ac4-bc4a-a4e7e4cdb952)
+<img width="278" height="124" alt="image" src="https://github.com/user-attachments/assets/6a612278-aae6-411e-9b5d-eabc8d221bc2" />
 
 Now save the file in your desired location; we recommend keeping it on your `Desktop` for quick access.
 
-## Running it
+## Running ▶️
 
 How to run the file:
 
 ```
-python tags.py
+$ python tags.py
 ```
 
 or
 
 ```
-python3 tags.py
+$ python3 tags.py
 ```
 
-## Example
+If you encouter any issues regarding missing modules then we recommend running the script in a virtual environment.
+
+Follow these steps:
+
+```
+# Create a virtual environment
+$ python -m venv .venv
+
+# Activate it
+$ source .venv/bin/activate   # on macOS/Linux
+
+# Activate it (PowerShell)
+$ .venv\Scripts\Activate   # on Windows
+
+# Now install requests inside it
+$ pip install requests
+
+$ python tags.py
+```
+
+or
+
+```
+# Create a virtual environment
+$ python3 -m venv .venv
+
+# Activate it
+$ source .venv/bin/activate   # on macOS/Linux
+
+# Activate it (PowerShell)
+$ .venv\Scripts\Activate   # on Windows
+
+# Now install requests inside it
+$ pip install requests
+
+$ python3 tags.py
+```
+
+## Example 📖
+
+Here's an example usage recording:
 
 ![Screen Recording 2025-09-08 at 20 52 57](https://github.com/user-attachments/assets/16185cbe-4655-4a9b-b563-2c532b95c0dd)
 
-## License
+If you encounter any issues then please [contact me](mailto:hi@notnick.io).
+
+## License 📜
 
 MIT License
 
