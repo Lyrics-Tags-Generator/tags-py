@@ -30,9 +30,9 @@ or
 python3 tags.py
 ```
 
-## Output
+## Example
 
-![image](https://github.com/user-attachments/assets/f0e99ad6-3a79-43d2-9667-f227903740c0)
+![Screen Recording 2025-09-08 at 20 52 57](https://github.com/user-attachments/assets/16185cbe-4655-4a9b-b563-2c532b95c0dd)
 
 ## License
 
