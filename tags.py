@@ -1,50 +1,60 @@
-import requests
+import requests # type: ignore
 import re
 
+# Welcome message
 print("Welcome to Lyrics Tags Generator.")
-
 print("")
 
+# Pause until user presses a key
 start = input("Enter any key to start...")
 
+# Centralized error messages (for consistency across script)
 error = {
     "message": {
-        "characterLimitExceeded": "Character limit exceeded.",
-        "provideAllRequiredFields": "Please provide all the required fields.",
+        "artistAndTitleAlreadyProvidedInTheArtistField": "The artist and title was already provided in the artist field.",
+        "removeSpecialCharactersAndNumbersExceptCommasVerse": "Please remove any numbers or special characters.",
+        "somethingWentWrongRetrievingCustomFormatKey": "Something went wrong retrieving the custom format key.",
+        "generateTagsBeforeYouCopyToClipboard": "Please generate the tags before you copy to clipboard.",
+        "youHaveAlreadyGeneratedTheExampleResponse": "You've already generated the example response.",
         "removeCommasFromTitle": "Please remove any commas , from the title or artist.",
+        "needToProvideAllValidVariables": "You need to provide the valid variables.",
+        "provideAllRequiredFields": "Please provide all the required fields.",
+        "tagsAlreadyRemoved": "Recommended tags have already been removed.",
+        "providedVariablesNotValid": "The provided variable is not valid.",
+        "threeVersesAreOnlyAllowed": "You can only include 3 verses.",
+        "generateTagsFirst": "Please generate the tags first.",
+        "provideAValidGenre": "Please provide a valid genre.",
+        "characterLimitExceeded": "Character limit exceeded.",
         "somethingWentWrong": "Something went wrong.",
-        "provideTitle": "Please provide the title.",
         "provideArtist": "Please provide the artist.",
         "nothingToClear": "There's nothing to clear.",
-        "provideAValidGenre": "Please provide a valid genre.",
-        "generateTagsFirst": "Please generate the tags first.",
-        "removeSpecialCharactersAndNumbersExceptCommasVerse": "Please remove any numbers or special characters.",
-        "threeVersesAreOnlyAllowed": "You can only include 3 verses.",
-        "generateTagsBeforeYouCopyToClipboard": "Please generate the tags before you copy to clipboard.",
-        "tagsAlreadyRemoved": "Recommended tags have already been removed.",
-        "invalidFormat": "Invalid format.",
+        "enterValidKey": "Please enter a valid key.",
+        "provideTitle": "Please provide the title.",
         "methodNotAllowed": "Method Not Allowed",
+        "invalidFormat": "Invalid format.",
     }
 }
 
+
+# Input field character limits (for validation)
 ARTIST_INPUT_FIELD_CHARACTER_LIMIT_FORMATTED = 100
 CHANNEL_NAME_INPUT_FIELD_CHARACTER_LIMIT = 30
 FEATURES_INPUT_FIELD_CHARACTER_LIMIT = 30
 ARTIST_INPUT_FIELD_CHARACTER_LIMIT = 30
 TITLE_INPUT_FIELD_CHARACTER_LIMIT = 45
 
+# Prints a new line
 print("")
 
+# Collect user inputs for tag generation
 artist = input("*Artist: ")
 title = input("Title: ")
 features = input("Features: ")
 channel_name = input("Channel: ")
 tiktok = input("TikTok: ")
-format = input("Format (Lyrics, Bass Boosted, Nightcore/Sped Up, Slowed/Reverb, Letra, Phonk): ")
-genre = input("Genre (None, Country, Latin, Phonk, Pop, Rap): ")
+format = input("Format (Lyrics, Bass Boosted, Nightcore/Sped Up, Slowed/Reverb, Letra, Testo, Phonk): ")
+genre = input("Genre (None, Country, Latin, Italian, Phonk, Pop, Rap): ")
 verse = input("Verse: ")
-
-print("")
 
 def generate(artist: str, title: str, features: str, channel_name: str, tiktok: str, format: str, genre: str, verse: str):
     # Checks if the artist was provided.
@@ -128,6 +138,9 @@ def generate(artist: str, title: str, features: str, channel_name: str, tiktok: 
         
     formats = ["lyrics", "bassboosted", "nightcore", "slowed", "letra", "phonk"]
 
+    # Prints a new line
+    print("")
+
     # Checks if a valid format was provided.
     if format.lower() not in formats:
         error_message = error['message']['invalidFormat']
@@ -141,43 +154,65 @@ def generate(artist: str, title: str, features: str, channel_name: str, tiktok: 
         print("[GENRE] Defaulted to 'None'.")
         genre = "none"
 
+    # Prints a new line
     print("")
-    
+
+    # API endpoint for tag generation
     url = "https://tags.notnick.io/api/generate"
 
+    # Build the payload with provided inputs (fallbacks to "none" if empty)
     payload = {
-        "title": title if title else "none",
-        "artist": artist,
-        "features": features if features else "none",
-        "channel": channel_name if channel_name else "none",
         "tiktok": "true" if tiktok.lower() in ["true", "t"] else "false",
+        "channel": channel_name if channel_name else "none",
+        "features": features if features else "none",
+        "title": title if title else "none",
+        "verse": verse if verse else "none",
+        "source": "python_script",
         "format": format,
+        "artist": artist,
         "genre": genre,
-        "verse": verse if verse else "none"
     }
 
+    # Set headers for the request
     headers = {
         "Content-Type": "application/json"
     }
 
+    # Show loading message before making request
+    print("⏳ Loading, please wait...")
+
+    # Send GET request to API with payload
     response = requests.get(url, params=payload, headers=headers)
 
+    # Clear the loading message once response is back
+    print("\033[1A\033[K", end="")
+
+    # If request succeeded
     if response.status_code == 200:
         print("Here's your generated tags:\n")
-        print(response.json()["removedTags"])
 
+        # Extract tags from JSON response
+        tags = response.json()["removedTags"]
+        print(tags)
         print("")
 
+        # Extract response ID and URL path
+        response_id = response.json()["responseId"]
         response_url_path = response.json()["url"]
 
+        # Base URL for full link
         url = "https://tags.notnick.io"
 
-        print(f"Link: {url}{response_url_path}")
+        # Print link and response ID
+        # print(f"Link: {url}{response_url_path}\n")
+        print(f"Response: {response_id}")
 
-
+    # If request failed, show error
     else:
         error_message = response.json()["error"]
         print(f"Error: {error_message}")
 
+
+# Call the generate method
 generate(artist, title, features, channel_name, tiktok, format, genre, verse)
 
