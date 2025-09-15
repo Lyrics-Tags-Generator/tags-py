@@ -158,7 +158,7 @@ def generate(artist: str, title: str, features: str, channel_name: str, tiktok: 
     print("")
 
     # API endpoint for tag generation
-    url = "https://tags.notnick.io/api/generate"
+    url = "https://tags.notnick.io/api/v1/generate"
 
     # Build the payload with provided inputs (fallbacks to "none" if empty)
     payload = {
