@@ -136,7 +136,7 @@ def generate(artist: str, title: str, features: str, channel_name: str, tiktok: 
             print(f"[VERSE] {error_message}")
             return
         
-    formats = ["lyrics", "bassboosted", "nightcore", "slowed", "letra", "phonk"]
+    formats = ["lyrics", "bassboosted", "nightcore", "slowed", "letra", "testo", "phonk"]
 
     # Prints a new line
     print("")
@@ -167,10 +167,10 @@ def generate(artist: str, title: str, features: str, channel_name: str, tiktok: 
         "features": features if features else "none",
         "title": title if title else "none",
         "verse": verse if verse else "none",
-        "source": "python_script",
+        "genre": genre.lower(),
+        "source": "tags-py",
         "format": format,
         "artist": artist,
-        "genre": genre,
     }
 
     # Set headers for the request
