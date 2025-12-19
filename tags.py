@@ -136,7 +136,7 @@ def generate(artist: str, title: str, features: str, channel_name: str, tiktok: 
             print(f"[VERSE] {error_message}")
             return
         
-    formats = ["lyrics", "bassboosted", "nightcore", "slowed", "letra", "testo", "phonk"]
+    formats = ["lyrics", "bassboosted", "nightcore", "slowed", "letra", "testo", "phonk", "none"]
 
     # Prints a new line
     print("")
@@ -147,7 +147,7 @@ def generate(artist: str, title: str, features: str, channel_name: str, tiktok: 
         print(f"[FORMAT] {error_message}. Defaulted to 'Lyrics'.")
         format = "lyrics"
     
-    genres = ["none", "country", "latin", "phonk", "pop", "rap"]
+    genres = ["none", "country", "latin", "italian", "dance" "phonk", "pop", "rap"]
 
     # Checks if a valid genre was provided.
     if genre.lower() not in genres:
