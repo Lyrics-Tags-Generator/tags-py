@@ -77,3 +77,5 @@ Here's an example usage recording:
 If you encounter any issues then please [contact me](mailto:hi@notnick.io).
 
 ## License 📜
+
+MIT
