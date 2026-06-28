@@ -30,6 +30,14 @@ or
 $ python3 tags.py
 ```
 
+## Dependencies 📦
+
+The script only needs the [`requests`](https://pypi.org/project/requests/) package (everything else is from the Python standard library). Install it with:
+
+```
+$ pip install -r requirements.txt
+```
+
 If you encouter any issues regarding missing modules (`ModuleNotFoundError`) then we recommend running the script in a virtual environment.
 
 Follow these steps:
@@ -44,8 +52,8 @@ $ source .venv/bin/activate   # on macOS/Linux
 # Activate it (PowerShell)
 $ .venv\Scripts\Activate   # on Windows
 
-# Now install requests inside it
-$ pip install requests
+# Now install the dependencies inside it
+$ pip install -r requirements.txt
 
 $ python tags.py
 ```
@@ -62,8 +70,8 @@ $ source .venv/bin/activate   # on macOS/Linux
 # Activate it (PowerShell)
 $ .venv\Scripts\Activate   # on Windows
 
-# Now install requests inside it
-$ pip install requests
+# Now install the dependencies inside it
+$ pip install -r requirements.txt
 
 $ python3 tags.py
 ```
