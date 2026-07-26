@@ -180,7 +180,7 @@ if "-" in artist or "—" in artist:
     channel_name = prompt("Channel")
     tiktok = prompt("TikTok", hint="true/false")
     format = prompt("Format", hint="Lyrics, Bass Boosted, Nightcore/Sped Up, Slowed/Reverb, Letra, Testo, Phonk")
-    genre = prompt("Genre", hint="None, Country, Latin, Italian, Phonk, Pop, Rap")
+    genre = prompt("Genre", hint="None, Country, Latin, Italian, Dance, Phonk, Pop, Rap, Alternative, Emo, Rock, EDM, Trap, Electronic")
     shuffle = prompt("Shuffle", hint="yes/no")
     metadata = prompt("Save metadata file", hint="yes/no")
 else:
@@ -189,7 +189,7 @@ else:
     channel_name = prompt("Channel")
     tiktok = prompt("TikTok", hint="true/false")
     format = prompt("Format", hint="Lyrics, Bass Boosted, Nightcore/Sped Up, Slowed/Reverb, Letra, Testo, Phonk")
-    genre = prompt("Genre", hint="None, Country, Latin, Italian, Phonk, Pop, Rap")
+    genre = prompt("Genre", hint="None, Country, Latin, Italian, Dance, Phonk, Pop, Rap, Alternative, Emo, Rock, EDM, Trap, Electronic")
     verse = prompt("Verse")
     shuffle = prompt("Shuffle", hint="yes/no")
     metadata = prompt("Save metadata file", hint="yes/no")
@@ -285,7 +285,7 @@ def generate(artist: str, title: str, features: str, channel_name: str, tiktok: 
         print(f"{YELLOW}![FORMAT]{RESET} {error_message} Defaulted to {BOLD}'Lyrics'{RESET}.")
         format = "lyrics"
 
-    genres = ["none", "country", "latin", "italian", "dance", "phonk", "pop", "rap"]
+    genres = ["none", "country", "latin", "italian", "dance", "phonk", "pop", "rap", "alternative", "emo", "rock", "edm", "trap", "electronic"]
 
     # Checks if a valid genre was provided.
     if genre.lower() not in genres:
